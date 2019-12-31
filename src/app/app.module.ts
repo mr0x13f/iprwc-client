@@ -7,17 +7,17 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './products/products.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
-  { path: "",           component: HomeComponent },
   { path: "login",      component: LoginComponent },
   { path: "register",   component: RegisterComponent },
   { path: "user",       component: UserComponent },
+  { path: "",   component: ProductsComponent },
   { path: "admin",      component: AdminComponent },
   { path: "wishlist",   component: WishlistComponent },
   { path: "cart",       component: CartComponent },
@@ -31,7 +31,7 @@ const appRoutes: Routes = [
     CartComponent,
     WishlistComponent,
     OrdersComponent,
-    HomeComponent,
+    ProductsComponent,
     UserComponent,
     AdminComponent,
     LoginComponent,
