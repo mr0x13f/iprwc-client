@@ -1,0 +1,13 @@
+ul.product-list {
+
+    list-style: none;
+    width: 100vw;
+
+}
+
+ul.product-list li {
+
+    list-style: none;
+    float: left;
+
+}

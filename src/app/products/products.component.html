@@ -1,5 +1,7 @@
-<ul>
+<ul class="product-list">
     <li *ngFor="let product of products">
-        <app-product-list-item></app-product-list-item>
+        <app-product-list-item
+            [product]="product" [routerLink]="['product', product.productId]">
+        </app-product-list-item>
     </li>
 </ul>

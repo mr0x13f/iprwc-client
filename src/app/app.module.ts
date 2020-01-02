@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProductListItemComponent } from './products/product-list-item/product-list-item.component';
+import { HeaderComponent } from './header/header.component';
 
 const appRoutes: Routes = [
   { path: "",             component: ProductsComponent },
@@ -40,11 +42,13 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ProductDetailComponent,
-    ProductListItemComponent 
+    ProductListItemComponent,
+    HeaderComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
