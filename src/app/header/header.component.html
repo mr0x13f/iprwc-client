@@ -1,9 +1,9 @@
 <h1><a routerLink="/">weebshop</a></h1>
 <p>
-    <a routerLink="/wishlist">wishlist</a>|
-    <a routerLink="/cart">cart</a>|
-    <a routerLink="/orders">orders</a>|
-    <a routerLink="/user">user</a>|
-    <a routerLink="/admin">admin</a>|
-    <a routerLink="/login">login</a>
+    <a routerLink="/wishlist">Wishlist</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/orders">Orders</a>
+    <a *ngIf="userService.isLoggedIn()" routerLink="/user">Welcome, {{ httpService.user.name }}</a>
+    <a *ngIf="!userService.isLoggedIn()" routerLink="/login">Sign in</a>
+    <a *ngIf="userService.isAdmin()" routerLink="/admin">Admin</a>
 </p>

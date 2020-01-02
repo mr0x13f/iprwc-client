@@ -3,6 +3,12 @@
     display: block;
 }
 
+h1 {
+    margin: 0;
+}
+
 a {
+    text-decoration: none;
     color: #fff;
+    margin: 5px;
 }
