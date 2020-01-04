@@ -1,6 +1,10 @@
-<img [src]="product.imageUrl" alt="">
+<img [routerLink]="['/product', cartItem.productId]" [src]="product ? product.imageUrl : ''" alt="">
 <p>
-    {{ product.name }}
-    <br><br>
-    amount: {{ cartItem.amount }}
+    {{ product ? product.name : '' }}
+    <br>
+    Price: {{ product ? productService.formatPrice(product.price) : '' }}
+    <br>
+    Amount: {{ cartItem.amount }}
+    <br>
+    <button (click)="onRemove()" id="remove">Remove</button>
 </p>

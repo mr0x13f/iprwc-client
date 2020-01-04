@@ -1,11 +1,11 @@
-ul.product-list {
+ul {
 
     list-style: none;
     width: 100vw;
 
 }
 
-ul.product-list li {
+ul li {
 
     float: left;
 

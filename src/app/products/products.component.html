@@ -1,9 +1,10 @@
 <p *ngIf="error == ProductsError.LOAD_FAIL">There was a problem finding the products. Please try again later.</p>
 
-<ul class="product-list">
+<ul>
     <li *ngFor="let product of products">
         <app-product-list-item
-            [product]="product" [routerLink]="['/product', product.productId]">
+            [product]="product"
+            [routerLink]="['/product', product.productId]">
         </app-product-list-item>
     </li>
 </ul>

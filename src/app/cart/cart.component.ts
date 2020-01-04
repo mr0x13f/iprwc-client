@@ -6,6 +6,7 @@ import { CartService } from '../services/cart.service';
 enum CartError {
     NONE,
     LOAD_FAIL,
+    REMOVE_FAIL,
     CLEAR_FAIL,
     CHECKOUT_FAIL
 }
@@ -37,6 +38,33 @@ export class CartComponent implements OnInit {
 
     }
 
+    onRemove(cartItem:CartItem) {
+        
+        this.cartService.deleteCartItem(cartItem.productId,
+            () => {
+
+                for( let i = 0; i < this.cartItems.length; i++){ 
+                    if ( this.cartItems[i] === cartItem) {
+                        this.cartItems.splice(i, 1); 
+                    }
+                }
+
+            }, error => {
+                this.error = CartError.REMOVE_FAIL;
+            });
+    }
+
+    onRemoveAll() {
+
+        this.cartService.clearCart(
+            () => {
+                this.cartItems = [];
+            }, error => {
+                this.error = CartError.CLEAR_FAIL;
+            });
+
+    }
+
     onCheckout() {
 
         this.cartService.checkout(
@@ -44,17 +72,6 @@ export class CartComponent implements OnInit {
                 this.cartItems = [];
             }, error => {
                 this.error = CartError.CHECKOUT_FAIL;
-            });
-
-    }
-
-    onClearAll() {
-
-        this.cartService.clearCart(
-            () => {
-                this.cartItems = [];
-            }, error => {
-                this.error = CartError.CLEAR_FAIL;
             });
 
     }

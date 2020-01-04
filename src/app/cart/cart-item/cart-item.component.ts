@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { CartItem } from 'src/app/models/cart-item.model';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
@@ -20,6 +20,7 @@ export class CartItemComponent implements OnInit {
     CartItemError: typeof CartItemError = CartItemError;
 
     @Input("cartItem") cartItem:CartItem;
+    @Output("remove") removeEvent = new EventEmitter<CartItem>();
 
     product:Product;
 
@@ -37,6 +38,10 @@ export class CartItemComponent implements OnInit {
                 this.error = CartItemError.PRODUCT_NOT_FOUND;
             })
 
+    }
+
+    onRemove() {
+        this.removeEvent.emit(this.cartItem);
     }
 
 }

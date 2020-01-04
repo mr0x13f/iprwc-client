@@ -1,16 +1,19 @@
 :host {
     background-color: #EEE;
     display: inline-block;
+    width: 400px;
     height: 100px;
     margin: 10px;
-    cursor: pointer;
     padding: 5px;
 }
 
 img {
     max-height: 100%;
+    margin-right: 20px;
+    float: left;
+    cursor: pointer;
 }
 
-p {
+button#remove {
     float: right;
 }
