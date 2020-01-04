@@ -3,6 +3,11 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
+enum LoginError {
+    NONE,
+    INVALID_CREDENTIALS
+}
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -10,7 +15,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-    error = false;
+    error = LoginError.NONE;
+    LoginError : typeof LoginError = LoginError;
 
     constructor(private router:Router, private authService:AuthService) { }
 
@@ -24,15 +30,15 @@ export class LoginComponent implements OnInit {
 
         let loginForm = <{email:string, password:string}> form.value;
 
+        loginForm.email = "nigerfagoot@gmail.com";
+        loginForm.password = "wachtwoord";
+
         this.authService.login(loginForm.email, loginForm.password,
-            error => {
-                // error
-                this.error = true;
-            },
             () => {
-                // success
-                console.log(this.authService.user);
                 this.router.navigate(["/"]);
+            },
+            error => {
+                this.error = LoginError.INVALID_CREDENTIALS;
             })
     }
 

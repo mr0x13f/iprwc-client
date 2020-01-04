@@ -17,6 +17,7 @@ import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProductListItemComponent } from './products/product-list-item/product-list-item.component';
 import { HeaderComponent } from './header/header.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 const appRoutes: Routes = [
     { path: "",             component: ProductsComponent },
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
         RegisterComponent,
         ProductDetailComponent,
         ProductListItemComponent,
-        HeaderComponent 
+        HeaderComponent,
+        CartItemComponent 
     ],
     imports: [
         BrowserModule,

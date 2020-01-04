@@ -3,13 +3,15 @@
     <h2>{{ product.name }}</h2>
     <img [src]="product.imageUrl"> 
     <h2>{{ productService.formatPrice(product.price) }}</h2>
-    <button>Add to wishlist</button>
-    <button>Add to cart</button>
+    <button (click)="onAddToWishlist()" [disabled]="onWishlist">{{ onWishlist? 'On wishlist' : 'Add to wishlist' }}</button>
+    <button (click)="onAddToCart()" [disabled]="inCart">{{ inCart ? 'In cart' : 'Add to cart' }}</button>
     <p>{{ product.description }}</p>
 
 </div>
 
-<div *ngIf="productNotFound" >
+<div *ngIf="error == ProductDetailError.NOT_FOUND" >
     <h2>Product not found</h2>
     <p>We looked everwhere, but we couldn't find the product you are looking for.</p>
 </div>
+<p *ngIf="error == ProductDetailError.ADD_TO_CART_FAIL">There was a problem adding this product to your cart. Please try again later.</p>
+<p *ngIf="error == ProductDetailError.ADD_TO_WISHLIST_FAIL">There was a problem adding this product to your wishlist. Please try again later.</p>

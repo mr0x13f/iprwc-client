@@ -15,7 +15,7 @@ export class AuthService {
 
     constructor(private router:Router, private httpService:HttpService, private userService:UserService) {}
 
-    public login(email:string, password:string, error?:(error:any)=>void, complete?:()=>void): void {
+    public login(email:string, password:string, success?:()=>void, error?:(error:any)=>void): void {
 
         this.httpService.headers = this.httpService.headers.set("Authorization", "Basic "+btoa(email+":"+password));
 
@@ -33,7 +33,7 @@ export class AuthService {
                 this.clearAuth();
                 if (error) error(err);
 
-            }, complete )
+            }, success )
 
         }, err => {
 
@@ -80,6 +80,7 @@ export class AuthService {
     public requireLogin() {
 
         if (!this.isLoggedIn()) this.router.navigate(["login"]);
+        return !this.isLoggedIn();
 
     }
 

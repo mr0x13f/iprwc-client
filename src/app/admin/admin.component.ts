@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
 
     ngOnInit() {
 
-        this.authService.requireLogin();
+        if (this.authService.requireLogin()) return;
 
     }
 

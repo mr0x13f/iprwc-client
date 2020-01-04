@@ -1,1 +1,14 @@
-<p>cart works!</p>
+<p *ngIf="error == CartError.LOAD_FAIL">There was a problem loading your cart. Please try again later.</p>
+<p *ngIf="error == CartError.CLEAR_FAIL">There was a problem clearing your cart. Please try again later.</p>
+<p *ngIf="error == CartError.CHECKOUT_FAIL">There was a problem checking out. Please try again later.</p>
+
+<button (click)="onCheckout()" [disabled]="cartItems.length == 0">Checkout</button>
+<button (click)="onClearAll()" [disabled]="cartItems.length == 0">Clear all</button>
+
+<ul class="cart-list">
+    <li *ngFor="let cartItem of cartItems">
+        <app-cart-item
+            [cartItem]="cartItem" [routerLink]="['/product', cartItem.productId]">
+        </app-cart-item>
+    </li>
+</ul>

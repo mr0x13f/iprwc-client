@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from './http.service';
 import { map } from "rxjs/operators";
+import { HttpService } from './http.service';
 import { User } from '../models/user.model';
 import { RegisterForm } from '../models/register-form.model';
 

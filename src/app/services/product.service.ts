@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from './http.service';
 import { map } from "rxjs/operators";
+import { HttpService } from './http.service';
 import { Product } from '../models/product.model';
 
 @Injectable({providedIn: 'root'})
