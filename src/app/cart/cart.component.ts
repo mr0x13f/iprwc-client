@@ -19,7 +19,7 @@ enum CartError {
 export class CartComponent implements OnInit {
 
     error = CartError.NONE;
-    CartError : typeof CartError = CartError;
+    CartError: typeof CartError = CartError;
 
     cartItems:CartItem[] = [];
 

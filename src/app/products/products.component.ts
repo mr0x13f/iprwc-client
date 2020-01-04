@@ -29,6 +29,7 @@ export class ProductsComponent implements OnInit {
         this.productService.listProducts(
             products => {
                 this.products = products;
+                this.products.sort(this.productService.alphabeticalSort);
             }, error => {
                 this.error = ProductsError.LOAD_FAIL;
             });

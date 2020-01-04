@@ -9,6 +9,12 @@ export class ProductService {
 
     constructor(private httpService:HttpService) {}
 
+    public alphabeticalSort(a:Product, b:Product) {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+    }
+
     public listProducts(next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
 
         this.httpService.get("products")
