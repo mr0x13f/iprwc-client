@@ -1,7 +1,12 @@
-<form>
-    <input type="email">
-    <input type="password">
-    <input type="submit" text="Sign in">
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <label for="">Email</label><br>
+    <input type="email" id="email" name="email" ngModel required email><br>
+    <label for="">Password</label><br>
+    <input type="password" id="password" name="password" ngModel required><br>
+    <br>
+    <button type="submit" [disabled]="!loginForm.valid">Sign in</button>
 </form>
+
+<p *ngIf="error">Invalid credentials!</p>
 
 <a routerLink="/register">Register</a>

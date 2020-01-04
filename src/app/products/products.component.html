@@ -1,3 +1,5 @@
+<p *ngIf="error">There was a problem finding the products. Please try again later.</p>
+
 <ul class="product-list">
     <li *ngFor="let product of products">
         <app-product-list-item

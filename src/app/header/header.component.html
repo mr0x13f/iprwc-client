@@ -3,7 +3,7 @@
     <a routerLink="/wishlist">Wishlist</a>
     <a routerLink="/cart">Cart</a>
     <a routerLink="/orders">Orders</a>
-    <a *ngIf="userService.isLoggedIn()" routerLink="/user">Welcome, {{ httpService.user.name }}</a>
-    <a *ngIf="!userService.isLoggedIn()" routerLink="/login">Sign in</a>
-    <a *ngIf="userService.isAdmin()" routerLink="/admin">Admin</a>
+    <a *ngIf="authService.isLoggedIn()" routerLink="/user">Welcome, {{ authService.user.name }}</a>
+    <a *ngIf="!authService.isLoggedIn()" routerLink="/login">Sign in</a>
+    <a *ngIf="authService.isAdmin()" routerLink="/admin">Admin</a>
 </p>
