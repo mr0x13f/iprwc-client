@@ -3,25 +3,25 @@ import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+    selector: 'app-products',
+    templateUrl: './products.component.html',
+    styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
 
-  products: Product[] = [];
-  error = false;
+    products: Product[] = [];
+    error = false;
 
-  constructor(private productService:ProductService) { }
+    constructor(private productService:ProductService) { }
 
-  ngOnInit() {
+    ngOnInit() {
 
-    this.productService.listProducts( products => {
-      this.products = products;
-    }, error => {
-      this.error = true;
-    });
+        this.productService.listProducts( products => {
+            this.products = products;
+        }, error => {
+            this.error = true;
+        });
 
-  }
+    }
 
 }

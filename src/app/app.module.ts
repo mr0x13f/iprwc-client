@@ -19,41 +19,41 @@ import { ProductListItemComponent } from './products/product-list-item/product-l
 import { HeaderComponent } from './header/header.component';
 
 const appRoutes: Routes = [
-  { path: "",             component: ProductsComponent },
-  { path: "product/:id",  component: ProductDetailComponent },
-  { path: "wishlist",     component: WishlistComponent },
-  { path: "cart",         component: CartComponent },
-  { path: "orders",       component: OrdersComponent },
-  { path: "user",         component: UserComponent },
-  { path: "admin",        component: AdminComponent },
-  { path: "login",        component: LoginComponent },
-  { path: "register",     component: RegisterComponent },
+    { path: "",             component: ProductsComponent },
+    { path: "product/:id",  component: ProductDetailComponent },
+    { path: "wishlist",     component: WishlistComponent },
+    { path: "cart",         component: CartComponent },
+    { path: "orders",       component: OrdersComponent },
+    { path: "user",         component: UserComponent },
+    { path: "admin",        component: AdminComponent },
+    { path: "login",        component: LoginComponent },
+    { path: "register",     component: RegisterComponent },
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AppComponent,
-    CartComponent,
-    WishlistComponent,
-    OrdersComponent,
-    ProductsComponent,
-    UserComponent,
-    AdminComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProductDetailComponent,
-    ProductListItemComponent,
-    HeaderComponent 
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AppComponent,
+        CartComponent,
+        WishlistComponent,
+        OrdersComponent,
+        ProductsComponent,
+        UserComponent,
+        AdminComponent,
+        LoginComponent,
+        RegisterComponent,
+        ProductDetailComponent,
+        ProductListItemComponent,
+        HeaderComponent 
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes)
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
