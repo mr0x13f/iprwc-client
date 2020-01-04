@@ -23,7 +23,10 @@ export class CartComponent implements OnInit {
 
     cartItems:CartItem[] = [];
 
-    constructor(private authService:AuthService, private cartService:CartService) { }
+    constructor(
+        private authService:AuthService,
+        private cartService:CartService,
+    ) { }
 
     ngOnInit() {
 
