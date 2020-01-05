@@ -1,7 +1,9 @@
 <h2>Account</h2>
 
-<p>Name: {{ user.name }}</p>
-<p>Email: {{ user.email }}</p>
+<p *ngIf="error == UserError.LOAD_FAIL">There was a problem retrieving your account info. Please try again later.</p>
+
+<p>Name: {{ user ? user.name : '' }}</p>
+<p>Email: {{ user ? user.email : '' }}</p>
 <p>Password: (unchanged)</p>
 
 <button>Sign Out</button>

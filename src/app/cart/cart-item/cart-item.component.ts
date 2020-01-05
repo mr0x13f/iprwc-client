@@ -14,7 +14,7 @@ export class CartItemComponent implements OnInit {
     @Input("cartItem") cartItem:CartItem;
     @Input("product") product:Product;
     @Output("remove") removeEvent = new EventEmitter<CartItem>();
-    @Output("change") changeEvent = new EventEmitter<CartItem>();
+    @Output("amountChange") amountChangeEvent = new EventEmitter<CartItem>();
 
     constructor(
         private cartService:CartService,
@@ -22,7 +22,7 @@ export class CartItemComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        
+
     }
 
     onRemove() {
@@ -34,8 +34,9 @@ export class CartItemComponent implements OnInit {
         let input:HTMLInputElement = <HTMLInputElement> event.target;
         input.value = Math.max(+input.value, 1).toString();
         this.cartItem.amount = +input.value;
-        this.cartService.addToCart(this.cartItem);
-        this.changeEvent.emit(this.cartItem);
+
+        this.amountChangeEvent.emit(this.cartItem);
+
     }
 
 }

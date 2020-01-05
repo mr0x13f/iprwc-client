@@ -8,6 +8,7 @@ import { ProductService } from '../services/product.service';
 enum CartError {
     NONE,
     LOAD_FAIL,
+    UPDATE_FAIL,
     REMOVE_FAIL,
     CLEAR_FAIL,
     CHECKOUT_FAIL
@@ -65,10 +66,17 @@ export class CartComponent implements OnInit {
 
     }
 
-    onChange(cartItem:CartItem) {
+    onAmountChange(cartItem:CartItem) {
 
         this.calculateTotalPrice();
-        
+
+        this.cartService.addToCart(cartItem,
+            () => {
+
+            }, error => {
+                this.error = CartError.UPDATE_FAIL;
+            });
+
     }
 
     onRemove(cartItem:CartItem) {
