@@ -4,12 +4,14 @@
     <li *ngFor="let cartItem of cartItems">
         <app-cart-item
             [cartItem]="cartItem"
-            (remove)="onRemove($event)">
+            [product]="products[cartItem.productId]"
+            (remove)="onRemove($event)"
+            (change)="onChange($event)">
         </app-cart-item>
     </li>
 </ul>
 
-<p>Total: {{ totalPrice }}</p>
+<p>Total: {{ this.productService.formatPrice(totalPrice) }}</p>
 
 <p *ngIf="error == CartError.LOAD_FAIL">There was a problem loading your cart. Please try again later.</p>
 <p *ngIf="error == CartError.CLEAR_FAIL">There was a problem clearing your cart. Please try again later.</p>

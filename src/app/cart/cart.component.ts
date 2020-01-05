@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { CartItem } from '../models/cart-item.model';
 import { CartService } from '../services/cart.service';
+import { Product } from '../models/product.model';
+import { ProductService } from '../services/product.service';
 
 enum CartError {
     NONE,
@@ -22,10 +24,13 @@ export class CartComponent implements OnInit {
     CartError: typeof CartError = CartError;
 
     cartItems:CartItem[] = [];
+    products:{[id:string]:Product} = {};
+    totalPrice = 0;
 
     constructor(
         private authService:AuthService,
         private cartService:CartService,
+        private productService:ProductService,
     ) { }
 
     ngOnInit() {
@@ -34,11 +39,36 @@ export class CartComponent implements OnInit {
 
         this.cartService.listCartItems(
             cartItems => {
+
                 this.cartItems = cartItems;
+                for (let cartItem of cartItems) {
+                    this.productService.getProductById(cartItem.productId,
+                        product => {
+                            this.products[product.productId] = product;
+                            this.totalPrice += product.price * cartItem.amount;
+                        });
+                }
+
             }, error => {
                 this.error = CartError.LOAD_FAIL;
             });
 
+    }
+
+    calculateTotalPrice() {
+
+        this.totalPrice = 0;
+        for (let cartItem of this.cartItems) {
+            let product = this.products[cartItem.productId];
+            this.totalPrice += product.price * cartItem.amount;
+        }
+
+    }
+
+    onChange(cartItem:CartItem) {
+
+        this.calculateTotalPrice();
+        
     }
 
     onRemove(cartItem:CartItem) {
@@ -51,6 +81,8 @@ export class CartComponent implements OnInit {
                         this.cartItems.splice(i, 1); 
                     }
                 }
+
+                this.calculateTotalPrice();
 
             }, error => {
                 this.error = CartError.REMOVE_FAIL;
@@ -65,6 +97,8 @@ export class CartComponent implements OnInit {
             }, error => {
                 this.error = CartError.CLEAR_FAIL;
             });
+        
+        this.totalPrice = 0;
 
     }
 
@@ -76,6 +110,8 @@ export class CartComponent implements OnInit {
             }, error => {
                 this.error = CartError.CHECKOUT_FAIL;
             });
+
+        this.totalPrice = 0;
 
     }
 

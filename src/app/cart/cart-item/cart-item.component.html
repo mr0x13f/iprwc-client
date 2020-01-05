@@ -4,7 +4,7 @@
     <br>
     Price: {{ product ? productService.formatPrice(product.price) : '' }}
     <br>
-    Amount: {{ cartItem.amount }}
+    Amount: <input type="number" [value]="cartItem.amount" (change)="onChange($event)" min=1>
     <br>
     <button (click)="onRemove()" id="remove">Remove</button>
 </p>
