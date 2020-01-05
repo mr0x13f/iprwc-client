@@ -19,6 +19,7 @@ import { ProductListItemComponent } from './products/product-list-item/product-l
 import { HeaderComponent } from './header/header.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { WishlistItemComponent } from './wishlist/wishlist-item/wishlist-item.component';
+import { OrderListItemComponent } from './orders/order-list-item/order-list-item.component';
 
 const appRoutes: Routes = [
     { path: "",             component: ProductsComponent },
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
         ProductListItemComponent,
         HeaderComponent,
         CartItemComponent,
-        WishlistItemComponent 
+        WishlistItemComponent,
+        OrderListItemComponent 
     ],
     imports: [
         BrowserModule,
