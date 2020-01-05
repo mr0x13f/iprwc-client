@@ -6,6 +6,8 @@ import { HttpService } from 'src/app/services/http.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/models/cart-item.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { WishlistService } from 'src/app/services/wishlist.service';
+import { WishlistItem } from 'src/app/models/wishlist-item.model';
 
 enum ProductDetailError {
     NONE,
@@ -33,7 +35,8 @@ export class ProductDetailComponent implements OnInit {
         private route:ActivatedRoute,
         private authService:AuthService,
         private productService:ProductService,
-        private cartService:CartService
+        private cartService:CartService,
+        private wishlistService:WishlistService,
     ) {}
 
     ngOnInit() {
@@ -55,12 +58,12 @@ export class ProductDetailComponent implements OnInit {
                     })
 
                 // Check if product is on wishlist
-                // this.wishlistService.getWishlistItemById(product.productId,
-                //     wishlistItem => {
-                //         this.onWishlist = true;
-                //     }, error => {
-                //         this.onWishlist = false;
-                //     })
+                this.wishlistService.getWishlistItemById(product.productId,
+                    wishlistItem => {
+                        this.onWishlist = true;
+                    }, error => {
+                        this.onWishlist = false;
+                    })
     
 
             }
@@ -84,6 +87,14 @@ export class ProductDetailComponent implements OnInit {
     }
 
     onAddToWishlist() {
+
+        let wishlistItem = new WishlistItem(null, this.product.productId);
+        this.wishlistService.addToWishlist(wishlistItem,
+            () => {
+                this.onWishlist = true;
+            }, error => {
+                this.error = ProductDetailError.ADD_TO_WISHLIST_FAIL;
+            });
 
     }
 

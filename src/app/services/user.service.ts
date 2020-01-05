@@ -43,9 +43,6 @@ export class UserService {
     public delete(next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
 
         this.httpService.delete("user")
-            .pipe( map( response => {
-                return <User> response;
-            }))
             .subscribe(next, error, complete)
 
     }

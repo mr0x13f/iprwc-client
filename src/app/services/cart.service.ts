@@ -46,22 +46,9 @@ export class CartService {
 
     }
 
-    public updateCartItem(productId:string, cartItem:CartItem, next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
-
-        this.httpService.put("cart/"+productId, cartItem)
-            .pipe( map( response => {
-                return <CartItem> response;
-            }))
-            .subscribe(next, error, complete)
-
-    }
-
     public deleteCartItem(productId:string, next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
 
         this.httpService.delete("cart/"+productId)
-            .pipe( map( response => {
-                return <CartItem> response;
-            }))
             .subscribe(next, error, complete)
 
     }
@@ -69,9 +56,6 @@ export class CartService {
     public clearCart(next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
 
         this.httpService.delete("cart")
-            .pipe( map( response => {
-                return <CartItem> response;
-            }))
             .subscribe(next, error, complete)
 
     }

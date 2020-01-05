@@ -18,6 +18,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ProductListItemComponent } from './products/product-list-item/product-list-item.component';
 import { HeaderComponent } from './header/header.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { WishlistItemComponent } from './wishlist/wishlist-item/wishlist-item.component';
 
 const appRoutes: Routes = [
     { path: "",             component: ProductsComponent },
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
         ProductDetailComponent,
         ProductListItemComponent,
         HeaderComponent,
-        CartItemComponent 
+        CartItemComponent,
+        WishlistItemComponent 
     ],
     imports: [
         BrowserModule,

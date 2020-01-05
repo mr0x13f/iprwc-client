@@ -1,1 +1,17 @@
 <h2>Wishlist</h2>
+
+<ul>
+    <li *ngFor="let wishlistItem of wishlistItems">
+        <app-wishlist-item
+            [wishlistItem]="wishlistItem"
+            [product]="products[wishlistItem.productId]"
+            (remove)="onRemove($event)">
+        </app-wishlist-item>
+    </li>
+</ul>
+
+<p *ngIf="error == WishlistError.LOAD_FAIL">There was a problem loading your wishlist. Please try again later.</p>
+<p *ngIf="error == WishlistError.CLEAR_FAIL">There was a problem clearing your wishlist. Please try again later.</p>
+<p *ngIf="error == WishlistError.REMOVE_FAIL">There was a problem removing the product from your wishlist. Please try again later.</p>
+
+<button (click)="onRemoveAll()" [disabled]="wishlistItems.length == 0">Remove all</button>

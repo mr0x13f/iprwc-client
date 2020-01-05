@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { WishlistItem } from '../models/wishlist-item.model';
+import { WishlistService } from '../services/wishlist.service';
+import { ProductService } from '../services/product.service';
+import { Product } from '../models/product.model';
+
+enum WishlistError {
+    NONE,
+    LOAD_FAIL,
+    REMOVE_FAIL,
+    CLEAR_FAIL,
+}
+
 
 @Component({
     selector: 'app-wishlist',
@@ -8,13 +20,64 @@ import { AuthService } from '../services/auth.service';
 })
 export class WishlistComponent implements OnInit {
 
+    error = WishlistError.NONE;
+    WishlistError: typeof WishlistError = WishlistError;
+
+    wishlistItems:WishlistItem[] = [];
+    products:{[id:string]:Product} = {};
+
     constructor(
-        private authService:AuthService
+        private authService:AuthService,
+        private wishlistService:WishlistService,
+        private productService:ProductService,
     ) { }
 
     ngOnInit() {
 
         if (this.authService.requireLogin()) return;
+
+        this.wishlistService.listWishlistItems(
+            wishlistItems => {
+
+                this.wishlistItems = wishlistItems;
+                for (let wishlistItem of wishlistItems) {
+                    this.productService.getProductById(wishlistItem.productId,
+                        product => {
+                            this.products[product.productId] = product;
+                        });
+                }
+
+            }, error => {
+                this.error = WishlistError.LOAD_FAIL;
+            });
+
+
+    }
+
+    onRemove(wishlistItem:WishlistItem) {
+        
+        this.wishlistService.deleteWishlistItem(wishlistItem.productId,
+            () => {
+
+                for( let i = 0; i < this.wishlistItems.length; i++){ 
+                    if ( this.wishlistItems[i] === wishlistItem) {
+                        this.wishlistItems.splice(i, 1); 
+                    }
+                }
+
+            }, error => {
+                this.error = WishlistError.REMOVE_FAIL;
+            });
+    }
+
+    onRemoveAll() {
+
+        this.wishlistService.clearWishlist(
+            () => {
+                this.wishlistItems = [];
+            }, error => {
+                this.error = WishlistError.CLEAR_FAIL;
+            });
 
     }
 

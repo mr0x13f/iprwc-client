@@ -1,0 +1,7 @@
+<img [routerLink]="['/product', wishlistItem.productId]" [src]="product ? product.imageUrl : ''" alt="">
+<p>
+    {{ product ? product.name : '' }}
+    <br>
+    Price: {{ product ? productService.formatPrice(product.price) : '' }}
+    <button (click)="onRemove()" id="remove">Remove</button>
+</p>
