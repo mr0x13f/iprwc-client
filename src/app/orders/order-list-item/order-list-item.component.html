@@ -1,1 +1,12 @@
-<p>order-list-item works!</p>
+<img [routerLink]="['/product', order.productId]" [src]="product ? product.imageUrl : ''" alt="">
+<p>
+    {{ order.date }}
+    <br>
+    {{ product ? product.name : '' }}
+    <br>
+    Price: {{ product ? productService.formatPrice(product.price) : '' }}
+    <br>
+    Amount: {{ order.amount }}
+    <br>
+    Total: {{ product ? productService.formatPrice(product.price * order.amount) : '' }}
+</p>

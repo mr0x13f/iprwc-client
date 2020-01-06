@@ -1,1 +1,12 @@
 <h2>Order History</h2>
+
+<ul>
+    <li *ngFor="let order of orders">
+        <app-order-list-item
+            [order]="order"
+            [product]="products[order.productId]">
+        </app-order-list-item>
+    </li>
+</ul>
+
+<p *ngIf="error == OrderError.LOAD_FAIL">There was a problem loading your order history. Please try again later.</p>
