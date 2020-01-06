@@ -20,17 +20,23 @@ import { HeaderComponent } from './header/header.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { WishlistItemComponent } from './wishlist/wishlist-item/wishlist-item.component';
 import { OrderListItemComponent } from './orders/order-list-item/order-list-item.component';
+import { ProductEditComponent } from './admin/product-edit/product-edit.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderCompleteComponent } from './order-complete/order-complete.component';
 
 const appRoutes: Routes = [
-    { path: "",             component: ProductsComponent },
-    { path: "product/:id",  component: ProductDetailComponent },
-    { path: "wishlist",     component: WishlistComponent },
-    { path: "cart",         component: CartComponent },
-    { path: "orders",       component: OrdersComponent },
-    { path: "user",         component: UserComponent },
-    { path: "admin",        component: AdminComponent },
-    { path: "login",        component: LoginComponent },
-    { path: "register",     component: RegisterComponent },
+    { path: "",                 component: ProductsComponent },
+    { path: "product/:id",      component: ProductDetailComponent },
+    { path: "wishlist",         component: WishlistComponent },
+    { path: "cart",             component: CartComponent },
+    { path: "checkout",         component: CheckoutComponent },
+    { path: "order-complete",   component: OrderCompleteComponent },
+    { path: "orders",           component: OrdersComponent },
+    { path: "user",             component: UserComponent },
+    { path: "admin",            component: AdminComponent },
+    { path: "admin/:id",        component: ProductEditComponent },
+    { path: "login",            component: LoginComponent },
+    { path: "register",         component: RegisterComponent },
 ];
 
 @NgModule({
@@ -50,7 +56,10 @@ const appRoutes: Routes = [
         HeaderComponent,
         CartItemComponent,
         WishlistItemComponent,
-        OrderListItemComponent 
+        OrderListItemComponent,
+        ProductEditComponent,
+        CheckoutComponent,
+        OrderCompleteComponent 
     ],
     imports: [
         BrowserModule,
