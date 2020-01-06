@@ -43,11 +43,15 @@ export class CartComponent implements OnInit {
 
                 this.cartItems = cartItems;
                 for (let cartItem of cartItems) {
-                    this.productService.getProductById(cartItem.productId,
-                        product => {
-                            this.products[product.productId] = product;
-                            this.totalPrice += product.price * cartItem.amount;
-                        });
+                    if (this.products[cartItem.productId] == null) {
+                        this.productService.getProductById(cartItem.productId,
+                            product => {
+                                if (this.products[cartItem.productId] == null) {
+                                    this.products[cartItem.productId] = product;
+                                }
+                                this.totalPrice += product.price * cartItem.amount;
+                            });
+                    }
                 }
 
             }, error => {

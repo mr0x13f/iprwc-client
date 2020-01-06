@@ -38,10 +38,14 @@ export class OrdersComponent implements OnInit {
 
                 this.orders = orders;
                 for (let order of orders) {
-                    this.productService.getProductById(order.productId,
-                        product => {
-                            this.products[product.productId] = product;
-                        });
+                    if (this.products[order.productId] == null) {
+                        this.productService.getProductById(order.productId,
+                            product => {
+                                if (this.products[order.productId] == null) {
+                                    this.products[product.productId] = product;
+                                }
+                            });
+                    }
                 }
 
             }, error => {

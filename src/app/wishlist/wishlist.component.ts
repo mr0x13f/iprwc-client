@@ -41,10 +41,14 @@ export class WishlistComponent implements OnInit {
 
                 this.wishlistItems = wishlistItems;
                 for (let wishlistItem of wishlistItems) {
-                    this.productService.getProductById(wishlistItem.productId,
-                        product => {
-                            this.products[product.productId] = product;
-                        });
+                    if (this.products[wishlistItem.productId] == null) {
+                        this.productService.getProductById(wishlistItem.productId,
+                            product => {
+                                if (this.products[wishlistItem.productId] == null) {
+                                    this.products[product.productId] = product;
+                                }
+                            });
+                    }
                 }
 
             }, error => {
