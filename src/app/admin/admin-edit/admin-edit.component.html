@@ -1,15 +1,15 @@
 <h2>Edit Product</h2>
 
-<form>
+<form *ngIf="product != null">
     <label for="">Name</label><br>
-    <input type="text"><br>
+    <input type="text" name="name" [(ngModel)]="product.name"><br>
     <label for="">Image</label><br>
-    <input type="text"><br>
-    <img [src]="product.imageUrl"><br>
+    <input type="text" name="imageUrl" [(ngModel)]="product.imageUrl"><br>
+    <img [src]="product.imageUrl" *ngIf="product.imageUrl"><br>
     <label for="">Price</label><br>
-    <input type="text"><br>
+    <input type="text" name="price" [(ngModel)]="product.price"><br>
     <label for="">Description</label><br>
-    <input type="text"><br>
+    <input type="text" name="description" [(ngModel)]="product.description"><br>
     <br>
     <button>Save</button><br>
     <button>Delete</button>

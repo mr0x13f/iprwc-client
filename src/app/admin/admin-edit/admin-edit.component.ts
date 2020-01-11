@@ -2,6 +2,15 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
+import { ActivatedRoute } from '@angular/router';
+
+enum AdminEditError {
+    NONE,
+    NOT_FOUND,
+    CREATE_FAIL,
+    UPDATE_FAIL,
+    DELETE_FAIL,
+}
 
 @Component({
     selector: 'app-admin-edit',
@@ -10,9 +19,14 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AdminEditComponent implements OnInit {
 
+    error = AdminEditError.NONE;
+    AdminEditError: typeof AdminEditError = AdminEditError;
+
     product: Product;
+    isNew: boolean;
 
     constructor(
+        private route:ActivatedRoute,
         private authService:AuthService,
         private productService:ProductService,
     ) { }
@@ -21,13 +35,24 @@ export class AdminEditComponent implements OnInit {
 
         if (this.authService.requireAdmin()) return;
 
-        this.product = new Product(
-            "",
-            "name",
-            "description",
-            6.9,
-            "https://images-na.ssl-images-amazon.com/images/I/81i0vaqcbrL.jpg"
-        );
+        let productId = this.route.snapshot.params["id"];
+        this.isNew = productId == null;
+
+        if (productId) {
+
+            this.productService.getProductById( productId, product => {
+
+                this.product = product;
+
+            }, error => {
+                this.error = AdminEditError.NOT_FOUND;
+            });
+
+        } else {
+
+            this.product = new Product(null,null,null,null,null);
+
+        }
 
     }
 
