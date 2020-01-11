@@ -79,8 +79,28 @@ export class AuthService {
 
     public requireLogin() {
 
-        if (!this.isLoggedIn()) this.router.navigate(["login"]);
-        return !this.isLoggedIn();
+        if (!this.isLoggedIn()) {
+            this.router.navigate(["/login"])
+            return true;
+        };
+
+        return false;
+
+    }
+
+    public requireAdmin() {
+
+        if (!this.isLoggedIn()) {
+            this.router.navigate(["/login"])
+            return true;
+        };
+
+        if (!this.isAdmin()) {
+            this.router.navigate(["/"])
+            return true;
+        };
+
+        return false;
 
     }
 

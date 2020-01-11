@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
     selector: 'app-admin-edit',
@@ -10,9 +12,14 @@ export class AdminEditComponent implements OnInit {
 
     product: Product;
 
-    constructor() { }
+    constructor(
+        private authService:AuthService,
+        private productService:ProductService,
+    ) { }
 
     ngOnInit() {
+
+        if (this.authService.requireAdmin()) return;
 
         this.product = new Product(
             "",

@@ -28,7 +28,7 @@ export class AdminComponent implements OnInit {
 
     ngOnInit() {
 
-        if (this.authService.requireLogin()) return;
+        if (this.authService.requireAdmin()) return;
 
         this.productService.listProducts(
             products => {
