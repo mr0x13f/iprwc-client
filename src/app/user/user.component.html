@@ -1,10 +1,14 @@
 <h2>Account</h2>
 
 <p *ngIf="error == UserError.LOAD_FAIL">There was a problem retrieving your account info. Please try again later.</p>
+<p *ngIf="error == UserError.DELETE_FAIL">There was a problem deleting your account. Please try again later.</p>
 
-<p>Name: {{ user ? user.name : '' }}</p>
-<p>Email: {{ user ? user.email : '' }}</p>
-<p>Password: (unchanged)</p>
+<div *ngIf="user != null">
+<p>Name: {{ user.name }}</p>
+<p>Email: {{ user.email }}</p>
+<p *ngIf="user.isAdmin">Administrator: Yes</p>
+</div>
 
-<button>Sign Out</button>
-<button>Delete Account</button>
+<button (click)="onLogout()">Sign Out</button><br>
+<button (click)="onEdit()">Edit Info</button><br>
+<button (click)="onDelete()">Delete Account</button><br>

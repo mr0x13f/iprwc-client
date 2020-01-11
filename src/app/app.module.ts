@@ -24,6 +24,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderCompleteComponent } from './order-complete/order-complete.component';
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminListItemComponent } from './admin/admin-list-item/admin-list-item.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 
 const appRoutes: Routes = [
     { path: "",                 component: ProductsComponent },
@@ -34,8 +35,9 @@ const appRoutes: Routes = [
     { path: "order-complete",   component: OrderCompleteComponent },
     { path: "orders",           component: OrdersComponent },
     { path: "user",             component: UserComponent },
+    { path: "user/edit",        component: UserEditComponent },
     { path: "admin",            component: AdminComponent },
-    { path: "admin/edit",   component: AdminEditComponent },
+    { path: "admin/edit",       component: AdminEditComponent },
     { path: "admin/edit/:id",   component: AdminEditComponent },
     { path: "login",            component: LoginComponent },
     { path: "register",         component: RegisterComponent },
@@ -62,7 +64,8 @@ const appRoutes: Routes = [
         CheckoutComponent,
         OrderCompleteComponent,
         AdminEditComponent,
-        AdminListItemComponent 
+        AdminListItemComponent,
+        UserEditComponent 
     ],
     imports: [
         BrowserModule,

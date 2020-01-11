@@ -76,6 +76,8 @@ export class ProductDetailComponent implements OnInit {
 
     onAddToCart() {
 
+        if (this.authService.requireLogin()) return;
+
         let cartItem = new CartItem(null, this.product.productId, 1);
         this.cartService.addToCart(cartItem,
             () => {
@@ -87,6 +89,8 @@ export class ProductDetailComponent implements OnInit {
     }
 
     onAddToWishlist() {
+
+        if (this.authService.requireLogin()) return;
 
         let wishlistItem = new WishlistItem(null, this.product.productId);
         this.wishlistService.addToWishlist(wishlistItem,

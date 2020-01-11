@@ -2,13 +2,16 @@
 
 <form>
     <label for="">Name</label><br>
-    <input type="text"><br>
+    <input type="text" name="name" [(ngModel)]="registerForm.name"><br>
     <label for="">Email</label><br>
-    <input type="email"><br>
+    <input type="email" name="email" [(ngModel)]="registerForm.email"><br>
     <label for="">Password</label><br>
-    <input type="password"><br>
+    <input type="password" name="password" [(ngModel)]="registerForm.password"><br>
     <label for="">Repeat password</label><br>
-    <input type="password"><br>
+    <input type="password" name="repeatPassword" [(ngModel)]="repeatPassword"><br>
     <br>
-    <input type="submit" value="Register">
+    <input type="submit" value="Register" (click)="onRegister()">
 </form>
+
+<p *ngIf="error == RegisterError.REGISTER_FAIL">There was a problem registering your account. Make sure you entered a valid email address and that your password is at least 8 characters long.</p>
+<p *ngIf="error == RegisterError.PASSWORD_MISMATCH">Passwords don't match.</p>

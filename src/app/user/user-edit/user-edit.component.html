@@ -1,0 +1,18 @@
+<h2>Edit Account Info</h2>
+
+<form *ngIf="user != null">
+    <label for="">Name</label><br>
+    <input type="text" name="name" [(ngModel)]="registerForm.name"><br>
+    <label for="">Email</label><br>
+    <input type="email" name="email" [(ngModel)]="registerForm.email"><br>
+    <label for="">Password</label><br>
+    <input type="password" name="password" [(ngModel)]="registerForm.password"><br>
+    <label for="">Repeat password</label><br>
+    <input type="password" name="repeatPassword" [(ngModel)]="repeatPassword"><br>
+    <br>
+    <button (click)="onSave()">Save changed</button>
+</form>
+
+<p *ngIf="error == UserEditError.LOAD_FAIL">There was a problem retrieving your account info. Please try again later.</p>
+<p *ngIf="error == UserEditError.UPDATE_FAIL">There was a problem updating your account info. Make sure you entered a valid email address and that your password is at least 8 characters long.</p>
+<p *ngIf="error == UserEditError.PASSWORD_MISMATCH">Passwords don't match.</p>
