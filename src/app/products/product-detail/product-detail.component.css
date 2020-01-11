@@ -4,5 +4,7 @@ img {
 }
 
 p.description {
-    white-space: pre;
+    max-width: 600px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }

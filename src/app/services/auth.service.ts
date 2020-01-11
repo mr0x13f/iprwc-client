@@ -13,7 +13,11 @@ export class AuthService {
     public user:User;
     public token:Token;
 
-    constructor(private router:Router, private httpService:HttpService, private userService:UserService) {}
+    constructor(
+        private router:Router,
+        private httpService:HttpService,
+        private userService:UserService
+    ) {}
 
     public login(email:string, password:string, success?:()=>void, error?:(error:any)=>void): void {
 
