@@ -7,7 +7,9 @@ import { WishlistItem } from '../models/wishlist-item.model';
 
 export class WishlistService {
 
-    constructor(private httpService:HttpService) {}
+    constructor(
+        private httpService:HttpService
+    ) {}
 
     public listWishlistItems(next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
 

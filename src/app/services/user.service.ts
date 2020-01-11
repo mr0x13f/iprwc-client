@@ -8,7 +8,9 @@ import { RegisterForm } from '../models/register-form.model';
 
 export class UserService {
 
-    constructor(private httpService:HttpService) {}
+    constructor(
+        private httpService:HttpService
+    ) {}
 
     public getSelf(next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
 

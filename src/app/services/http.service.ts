@@ -11,7 +11,9 @@ export class HttpService {
         "Accept": "application/json",
     });
 
-    constructor(private http:HttpClient) {}
+    constructor(
+        private http:HttpClient
+    ) {}
 
     public get(url:string) {
         return this.http.get(this.baseUrl + url, {headers:this.headers});

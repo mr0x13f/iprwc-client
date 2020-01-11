@@ -1,3 +1,8 @@
 img {
-    height: 100px;
+    height: 200px;
+}
+
+textarea {
+    width: 500px;
+    height: 300px;
 }

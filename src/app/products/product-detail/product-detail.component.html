@@ -5,7 +5,7 @@
     <h2>{{ productService.formatPrice(product.price) }}</h2>
     <button (click)="onAddToWishlist()" [disabled]="onWishlist">{{ onWishlist? 'On wishlist' : 'Add to wishlist' }}</button>
     <button (click)="onAddToCart()" [disabled]="inCart">{{ inCart ? 'In cart' : 'Add to cart' }}</button>
-    <p>{{ product.description }}</p>
+    <p class="description">{{ product.description }}</p>
 
 </div>
 

@@ -7,7 +7,9 @@ import { CartItem } from '../models/cart-item.model';
 
 export class CartService {
 
-    constructor(private httpService:HttpService) {}
+    constructor(
+        private httpService:HttpService
+    ) {}
     
     public checkout(next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
 

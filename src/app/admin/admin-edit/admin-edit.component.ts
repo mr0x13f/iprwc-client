@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 enum AdminEditError {
     NONE,
@@ -26,6 +26,7 @@ export class AdminEditComponent implements OnInit {
     isNew: boolean;
 
     constructor(
+        private router:Router,
         private route:ActivatedRoute,
         private authService:AuthService,
         private productService:ProductService,
@@ -53,6 +54,46 @@ export class AdminEditComponent implements OnInit {
             this.product = new Product(null,null,null,null,null);
 
         }
+
+    }
+
+    onSave() {
+
+        if (this.isNew) this.create(); else this.update();
+
+    }
+
+    create() {
+
+        this.productService.createProduct( this.product,
+            product => {
+                this.router.navigate(["/admin"])
+            }, error => {
+                this.error = AdminEditError.CREATE_FAIL;
+            });
+
+    }
+
+    update() {
+
+        this.productService.updateProduct( this.product.productId, this.product,
+            product => {
+                this.router.navigate(["/admin"])
+            }, error => {
+                this.error = AdminEditError.UPDATE_FAIL;
+            });
+
+    }
+
+    onDelete() {
+
+        this.productService.deleteProduct( this.product.productId,
+            product => {
+                this.router.navigate(["/admin"])
+            }, error => {
+                this.error = AdminEditError.DELETE_FAIL;
+            });
+
 
     }
 
