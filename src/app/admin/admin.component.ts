@@ -6,7 +6,7 @@ import { Product } from '../models/product.model';
 enum AdminError {
     NONE,
     LOAD_FAIL,
-    DELETE_FAIL,
+    REMOVE_FAIL,
 }
 
 @Component({
@@ -39,5 +39,20 @@ export class AdminComponent implements OnInit {
 
     }
 
+    onDelete(product:Product) {
+        
+        this.productService.deleteProduct(product.productId,
+            () => {
+
+                for( let i = 0; i < this.products.length; i++){ 
+                    if ( this.products[i] === product) {
+                        this.products.splice(i, 1); 
+                    }
+                }
+
+            }, error => {
+                this.error = AdminError.REMOVE_FAIL;
+            });
+    }
 
 }

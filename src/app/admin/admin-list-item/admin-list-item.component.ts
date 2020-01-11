@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 
 @Component({
@@ -8,11 +8,17 @@ import { Product } from 'src/app/models/product.model';
 })
 export class AdminListItemComponent implements OnInit {
 
+    @Output("delete") deleteEvent = new EventEmitter<Product>();
+
     @Input("product") product: Product;
 
     constructor() { }
 
     ngOnInit() {
+    }
+
+    onDelete() {
+        this.deleteEvent.emit(this.product);
     }
 
 }
