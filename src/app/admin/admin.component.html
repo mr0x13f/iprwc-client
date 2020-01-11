@@ -1,1 +1,13 @@
-<p>admin works!</p>
+<h2>Admin Panel</h2>
+
+<button [routerLink]="['/admin/edit']">New</button>
+
+<ul>
+    <li *ngFor="let product of products">
+        <app-admin-list-item
+            [product]="product">
+        </app-admin-list-item>
+    </li>
+</ul>
+
+<p *ngIf="error == AdminError.LOAD_FAIL">There was a problem loading the products. Please try again later.</p>

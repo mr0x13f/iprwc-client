@@ -20,9 +20,10 @@ import { HeaderComponent } from './header/header.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { WishlistItemComponent } from './wishlist/wishlist-item/wishlist-item.component';
 import { OrderListItemComponent } from './orders/order-list-item/order-list-item.component';
-import { ProductEditComponent } from './admin/product-edit/product-edit.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderCompleteComponent } from './order-complete/order-complete.component';
+import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
+import { AdminListItemComponent } from './admin/admin-list-item/admin-list-item.component';
 
 const appRoutes: Routes = [
     { path: "",                 component: ProductsComponent },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     { path: "orders",           component: OrdersComponent },
     { path: "user",             component: UserComponent },
     { path: "admin",            component: AdminComponent },
-    { path: "admin/:id",        component: ProductEditComponent },
+    { path: "admin/edit",   component: AdminEditComponent },
+    { path: "admin/edit/:id",   component: AdminEditComponent },
     { path: "login",            component: LoginComponent },
     { path: "register",         component: RegisterComponent },
 ];
@@ -57,9 +59,10 @@ const appRoutes: Routes = [
         CartItemComponent,
         WishlistItemComponent,
         OrderListItemComponent,
-        ProductEditComponent,
         CheckoutComponent,
-        OrderCompleteComponent 
+        OrderCompleteComponent,
+        AdminEditComponent,
+        AdminListItemComponent 
     ],
     imports: [
         BrowserModule,
