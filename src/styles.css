@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --color-primary: #425EFF;
+    --color-background: #FFFFFF;
+    --color-text: #000000;
+
+    --page-width: 1000px;
+    --header-height: 65px;
+}
+
 html, body {
-	font-family: Arial, sans-serif;
+    font-family: 'Red Hat Text', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
 }

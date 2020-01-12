@@ -1,9 +1,12 @@
-<h1><a routerLink="/">weebshop</a></h1>
-<p>
-    <a routerLink="/wishlist">Wishlist</a>
-    <a routerLink="/cart">Cart</a>
-    <a routerLink="/orders">Orders</a>
-    <a *ngIf="authService.isLoggedIn()" routerLink="/user">Welcome, {{ authService.user.name }}</a>
-    <a *ngIf="!authService.isLoggedIn()" routerLink="/login">Sign in</a>
-    <a *ngIf="authService.isAdmin()" routerLink="/admin">Admin</a>
-</p>
+<div class="wrapper">
+    <p class="logo"><a routerLink="/">weebshop</a></p>
+
+    <div class="nav">
+        <a *ngIf="authService.isAdmin()" routerLink="/admin"><span>admin</span><i class="material-icons">settings_applications</i></a>
+        <a routerLink="/wishlist"><span>wishlist</span><i class="material-icons">favorite</i></a>
+        <a routerLink="/cart"><span>cart</span><i class="material-icons">shopping_cart</i></a>
+        <a routerLink="/orders"><span>orders</span><i class="material-icons">local_shipping</i></a>
+        <a *ngIf="authService.isLoggedIn()" routerLink="/user"><span>welcome, {{ authService.user.name }}</span><i class="material-icons">person</i></a>
+        <a *ngIf="!authService.isLoggedIn()" routerLink="/login"><span>sign in</span><i class="material-icons">person</i></a>
+    </div>
+</div>

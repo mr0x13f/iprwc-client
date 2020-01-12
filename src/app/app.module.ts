@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
@@ -25,6 +25,7 @@ import { OrderCompleteComponent } from './order-complete/order-complete.componen
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminListItemComponent } from './admin/admin-list-item/admin-list-item.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { BannerComponent } from './products/banner/banner.component';
 
 const appRoutes: Routes = [
     { path: "",                 component: ProductsComponent },
@@ -65,7 +66,8 @@ const appRoutes: Routes = [
         OrderCompleteComponent,
         AdminEditComponent,
         AdminListItemComponent,
-        UserEditComponent 
+        UserEditComponent,
+        BannerComponent
     ],
     imports: [
         BrowserModule,

@@ -1,5 +1,7 @@
 <p *ngIf="error == ProductsError.LOAD_FAIL">There was a problem finding the products. Please try again later.</p>
 
+<app-banner></app-banner>
+
 <ul>
     <li *ngFor="let product of products">
         <app-product-list-item

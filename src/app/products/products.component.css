@@ -1,7 +1,10 @@
 ul {
 
     list-style: none;
-    width: 100vw;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 100px;
+    overflow: auto; 
 
 }
 
@@ -10,3 +13,4 @@ ul li {
     float: left;
 
 }
+

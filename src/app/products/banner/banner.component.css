@@ -1,0 +1,56 @@
+:host {
+    position: relative;
+    display: block;
+    margin: 70px auto;
+    height: 350px;
+    width: 950px;
+    overflow: hidden;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.gradient {
+    background-image: linear-gradient(90deg, rgba(255,0,245,0.7) 0%, rgba(0,212,255,0.7) 100%);;
+    background-size: cover;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+
+    transition: width 0.4s, opacity 1s;;
+}
+
+img.top {
+    z-index: 1;
+    opacity: 0;
+}
+
+img.bottom {
+    z-index: 0;
+}
+
+:host:hover img {
+    width: 120%;
+}
+
+p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    z-index: 3;
+    color: var(--color-background);
+    font-size: 4em;
+    font-weight: bold;
+}
