@@ -2,5 +2,5 @@
     position: relative;
     height: 100%;
     max-width: var(--page-width);
-    margin: 0 auto;
+    margin: 50px auto 100px auto;
 }

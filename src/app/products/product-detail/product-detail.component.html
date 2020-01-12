@@ -1,10 +1,27 @@
 <div *ngIf="product != null" >
 
-    <h2>{{ product.name }}</h2>
-    <img [src]="product.imageUrl"> 
-    <h2>{{ productService.formatPrice(product.price) }}</h2>
-    <button (click)="onAddToWishlist()" [disabled]="onWishlist">{{ onWishlist? 'On wishlist' : 'Add to wishlist' }}</button>
-    <button (click)="onAddToCart()" [disabled]="inCart">{{ inCart ? 'In cart' : 'Add to cart' }}</button>
+    <p class="name">{{ product.name }}</p>
+
+    <div class="product-wrapper">
+
+        <div class="img-wrapper">
+            <img [src]="product.imageUrl"> 
+        </div>
+
+        <div class="price-wrapper">
+            <p class="price">{{ productService.formatPrice(product.price) }}</p>
+            <button *ngIf="!inCart" class="add-to-cart" (click)="onAddToCart()" >Add to cart <i class="material-icons">shopping_cart</i></button>
+            <button *ngIf="inCart" class="add-to-cart btn-alt" [routerLink]="['/cart']">In cart <i class="material-icons">shopping_cart</i></button>
+            <button *ngIf="!onWishlist" class="add-to-wishlist" (click)="onAddToWishlist()" >Add to wishlist <i class="material-icons">favorite</i></button>
+            <button *ngIf="onWishlist" class="add-to-wishlist btn-alt" [routerLink]="['/wishlist']">On wishlist <i class="material-icons">favorite</i></button>
+            <p class="shipping">
+                <i class="material-icons">check</i> No shipping <br>
+                <i class="material-icons">check</i> No refund
+            </p>
+        </div>
+
+    </div>
+
     <p class="description">{{ product.description }}</p>
 
 </div>

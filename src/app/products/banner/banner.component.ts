@@ -8,10 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BannerComponent implements OnInit {
 
     images:string[] = [
-        "/assets/images/impactblue.png",
-        "/assets/images/kobayashi.png",
-        "/assets/images/inertia_drift.png",
-        "/assets/images/thorkell.png",
+        "/assets/images/banner/impactblue.jpg",
+        "/assets/images/banner/kobayashi.jpg",
+        "/assets/images/banner/inertia_drift.jpg",
+        "/assets/images/banner/thorkell.jpg",
     ];
 
     bottomImage = 0;

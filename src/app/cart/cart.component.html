@@ -11,7 +11,7 @@
     </li>
 </ul>
 
-<p>Total: {{ this.productService.formatPrice(totalPrice) }}</p>
+<p class="total">Total: {{ this.productService.formatPrice(totalPrice) }}</p>
 
 <p *ngIf="error == CartError.LOAD_FAIL">There was a problem loading your cart. Please try again later.</p>
 <p *ngIf="error == CartError.UPDATE_FAIL">There was a problem updating the product in your cart. Please try again later.</p>
@@ -19,5 +19,5 @@
 <p *ngIf="error == CartError.CLEAR_FAIL">There was a problem clearing your cart. Please try again later.</p>
 <p *ngIf="error == CartError.CHECKOUT_FAIL">There was a problem checking out. Please try again later.</p>
 
-<button (click)="onCheckout()" [disabled]="cartItems.length == 0">Checkout</button>
-<button (click)="onRemoveAll()" [disabled]="cartItems.length == 0">Remove all</button>
+<button (click)="onCheckout()">Checkout</button>
+<a (click)="onRemoveAll()">Remove all</a>

@@ -14,4 +14,4 @@
 <p *ngIf="error == WishlistError.CLEAR_FAIL">There was a problem clearing your wishlist. Please try again later.</p>
 <p *ngIf="error == WishlistError.REMOVE_FAIL">There was a problem removing the product from your wishlist. Please try again later.</p>
 
-<button (click)="onRemoveAll()" [disabled]="wishlistItems.length == 0">Remove all</button>
+<a (click)="onRemoveAll()">Remove all</a>

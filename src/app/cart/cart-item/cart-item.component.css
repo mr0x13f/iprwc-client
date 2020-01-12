@@ -1,19 +1,44 @@
 :host {
-    background-color: #EEE;
+    position: relative;
     display: inline-block;
-    width: 400px;
+    width: 600px;
     height: 100px;
     margin: 10px;
     padding: 5px;
+
+    background-color: var(--color-card);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.12);
+}
+
+.img-wrapper {
+    margin: 5px;
+    height: 90px;
+    width: 90px;
+    margin-right: 20px;
+    float: left;
+    cursor: pointer;
+    position: relative;
 }
 
 img {
     max-height: 100%;
-    margin-right: 20px;
-    float: left;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+p {
     cursor: pointer;
 }
 
-button#remove {
-    float: right;
+.remove {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.amount {
+    width: 50px;
 }

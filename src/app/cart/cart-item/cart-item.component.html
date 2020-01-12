@@ -1,10 +1,12 @@
-<img [routerLink]="['/product', cartItem.productId]" [src]="product ? product.imageUrl : ''" alt="">
-<p>
-    {{ product ? product.name : '' }}
+<div class="img-wrapper">
+    <img [routerLink]="['/product', cartItem.productId]" [src]="product ? product.imageUrl : ''" alt="">
+</div>
+<p [routerLink]="['/product', cartItem.productId]">
+    <b>{{ product ? product.name : '' }}</b>
     <br>
-    Price: {{ product ? productService.formatPrice(product.price) : '' }}
+    {{ product ? productService.formatPrice(product.price) : '' }}
     <br>
-    Amount: <input type="number" [value]="cartItem.amount" (change)="onChange($event)" min=1>
+    Amount: <input class="amount" type="number" [value]="cartItem.amount" (change)="onChange($event)" min=1>
     <br>
-    <button (click)="onRemove()" id="remove">Remove</button>
 </p>
+<a class="remove" (click)="onRemove()" id="remove">Remove</a>

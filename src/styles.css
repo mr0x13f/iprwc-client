@@ -2,8 +2,12 @@
 
 :root {
     --color-primary: #425EFF;
-    --color-background: #FFFFFF;
-    --color-text: #000000;
+    --color-background: #FAFAFA;
+    --color-card: #FFFFFF;
+    --color-text: #303030;
+    --color-wishlist: #FF5656;
+    --color-shipping: #37B700;
+    --color-remove: #FF5656;
 
     --page-width: 1000px;
     --header-height: 65px;
@@ -15,4 +19,57 @@ html, body {
     padding: 0;
     background-color: var(--color-background);
     color: var(--color-text);
+}
+
+a {
+    cursor: pointer;
+    margin: 10px;
+}
+
+a:hover {
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+button {
+    --button-color: var(--color-primary);
+    --button-darken: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0));
+
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,0);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+
+    background: var(--button-darken), var(--button-color);
+    color: var(--color-background);
+
+    transition: --button-darken 0.2s;
+    vertical-align: middle;
+}
+
+button:hover {
+    --button-darken: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
+}
+
+button.btn-alt {
+    background-color: var(--color-background);
+    color: var(--button-color);
+    border: 2px solid var(--button-color);
+}
+
+button.btn-alt:hover {
+    --button-darken: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05));
+}
+
+i.material-icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
 }

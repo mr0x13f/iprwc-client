@@ -4,6 +4,7 @@
     background-color: var(--color-primary);
     height: var(--header-height);
     color: var(--color-background);
+    padding: 0 50px;
 }
 
 .wrapper {
@@ -23,14 +24,14 @@ a {
     font-size: 2em;
     margin: 0;
     top: 50%;
-    left: 40px;
+    left: 0px;
     transform: translateY(-50%);
 }
 
 .nav {
     position: absolute;
     top: 50%;
-    right: 40px;
+    right: 0px;
     transform: translateY(-50%);
 }
 
