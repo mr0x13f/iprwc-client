@@ -1,15 +1,12 @@
 <h2>Edit Account Info</h2>
 
 <form *ngIf="user != null">
-    <label for="">Name</label><br>
-    <input type="text" name="name" [(ngModel)]="registerForm.name"><br>
-    <label for="">Email</label><br>
-    <input type="email" name="email" [(ngModel)]="registerForm.email"><br>
-    <label for="">Password</label><br>
-    <input type="password" name="password" [(ngModel)]="registerForm.password"><br>
-    <label for="">Repeat password</label><br>
-    <input type="password" name="repeatPassword" [(ngModel)]="repeatPassword"><br>
-    <br>
+    <div class="wrapper">
+    <input type="text" name="name" [(ngModel)]="registerForm.name" placeholder="Name"><br>
+    <input type="email" name="email" [(ngModel)]="registerForm.email" placeholder="E-mail"><br>
+    <input type="password" name="password" [(ngModel)]="registerForm.password" placeholder="Password"><br>
+    <input type="password" name="repeatPassword" [(ngModel)]="repeatPassword" placeholder="Repeat password"><br>
+    </div>
     <button (click)="onSave()">Save changed</button>
 </form>
 
