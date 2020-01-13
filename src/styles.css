@@ -5,6 +5,7 @@
     --color-background: #FAFAFA;
     --color-card: #FFFFFF;
     --color-text: #303030;
+    --color-text-ghost: #AAAAAA;
     --color-wishlist: #FF5656;
     --color-shipping: #37B700;
     --color-remove: #FF5656;
@@ -20,6 +21,19 @@ html, body {
     background-color: var(--color-background);
     color: var(--color-text);
 }
+
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+i.material-icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
 
 a {
     cursor: pointer;
@@ -69,9 +83,14 @@ button.btn-alt:hover {
     --button-darken: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05));
 }
 
-i.material-icons {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
+input {
+    margin: 5px;
+    height: 20px;
+    padding: 5px 10px;
+    border: 1px solid var(--color-text-ghost);
+    border-radius: 5px;
+}
+
+input::placeholder {
+    color: var(--color-text-ghost);
 }
