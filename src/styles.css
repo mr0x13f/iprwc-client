@@ -24,6 +24,8 @@ html, body {
 a {
     cursor: pointer;
     margin: 10px;
+    text-decoration: none;
+    color: var(--color-text);
 }
 
 a:hover {

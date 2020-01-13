@@ -11,7 +11,7 @@
     </li>
 </ul>
 
-<p class="total">Total: {{ this.productService.formatPrice(totalPrice) }}</p>
+<p class="total">Total: {{ totalPrice | currency:'EUR':'symbol' }}</p>
 
 <p *ngIf="error == CartError.LOAD_FAIL">There was a problem loading your cart. Please try again later.</p>
 <p *ngIf="error == CartError.UPDATE_FAIL">There was a problem updating the product in your cart. Please try again later.</p>

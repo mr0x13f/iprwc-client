@@ -1,10 +1,10 @@
 <div class="img-wrapper">
     <img [routerLink]="['/product', cartItem.productId]" [src]="product ? product.imageUrl : ''" alt="">
 </div>
-<p [routerLink]="['/product', cartItem.productId]">
-    <b>{{ product ? product.name : '' }}</b>
+<p>
+    <a class="name" [routerLink]="['/product', cartItem.productId]">{{ product ? product.name : '' }}</a>
     <br>
-    {{ product ? productService.formatPrice(product.price) : '' }}
+    {{ product ? (product.price | currency:'EUR':'symbol') : '' }}
     <br>
     Amount: <input class="amount" type="number" [value]="cartItem.amount" (change)="onChange($event)" min=1>
     <br>

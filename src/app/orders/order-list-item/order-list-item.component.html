@@ -1,12 +1,10 @@
-<img [routerLink]="['/product', order.productId]" [src]="product ? product.imageUrl : ''" alt="">
+<div class="img-wrapper">
+    <img [routerLink]="['/product', order.productId]" [src]="product ? product.imageUrl : ''" alt="">
+</div>
 <p>
-    {{ order.date }}
+    <a class="name" [routerLink]="['/product', order.productId]">{{ product ? product.name : '' }}</a> {{ order.amount>1 ? 'x'+order.amount : '' }}
     <br>
-    {{ product ? product.name : '' }}
+    {{ order.date | date }}
     <br>
-    Price: {{ product ? productService.formatPrice(product.price) : '' }}
-    <br>
-    Amount: {{ order.amount }}
-    <br>
-    Total: {{ product ? productService.formatPrice(product.price * order.amount) : '' }}
+    Order total: {{ product ? ((product.price * order.amount) | currency:'EUR':'symbol') : '' }}
 </p>

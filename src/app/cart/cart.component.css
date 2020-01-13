@@ -7,10 +7,10 @@ ul{
 
     list-style: none;
     width: 100vw;
+    margin-bottom: 50px;
 
 }
 
 .total {
-    margin-top: 50px;
     font-weight: bold;
 }

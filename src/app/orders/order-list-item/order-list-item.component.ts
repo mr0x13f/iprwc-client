@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Order } from 'src/app/models/order.model';
 import { Product } from 'src/app/models/product.model';
-import { ProductService } from 'src/app/services/product.service';
 
 @Component({
     selector: 'app-order-list-item',
@@ -13,9 +12,7 @@ export class OrderListItemComponent implements OnInit {
     @Input("order") order:Order;
     @Input("product") product:Product;
 
-    constructor(
-        private productService:ProductService
-    ) { }
+    constructor() { }
 
     ngOnInit() {
     }

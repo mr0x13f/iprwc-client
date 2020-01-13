@@ -9,7 +9,7 @@
         </div>
 
         <div class="price-wrapper">
-            <p class="price">{{ productService.formatPrice(product.price) }}</p>
+            <p class="price">{{ product.price | currency:'EUR':'symbol' }}</p>
             <button *ngIf="!inCart" class="add-to-cart" (click)="onAddToCart()" >Add to cart <i class="material-icons">shopping_cart</i></button>
             <button *ngIf="inCart" class="add-to-cart btn-alt" [routerLink]="['/cart']">In cart <i class="material-icons">shopping_cart</i></button>
             <button *ngIf="!onWishlist" class="add-to-wishlist" (click)="onAddToWishlist()" >Add to wishlist <i class="material-icons">favorite</i></button>

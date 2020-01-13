@@ -31,17 +31,6 @@ export class ProductService {
 
     }
 
-    public formatPrice(price:number): string {
-
-        let decimal = Math.ceil( price % 1 * 100 );
-        let decimalString = decimal.toString();
-        decimalString = decimalString.length==2 ? decimalString : ("0"+decimalString);
-        // decimalString = decimal==0 ? "--" : decimalString;
-
-        return "€" + Math.floor(price) + "," + decimalString;
-
-    }
-
     public createProduct(product:Product, next?:(value:any)=>void, error?:(error:any)=>void, complete?:()=>void) {
 
         this.httpService.post("products", product)

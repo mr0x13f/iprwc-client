@@ -1,9 +1,9 @@
 <div class="img-wrapper">
     <img [routerLink]="['/product', wishlistItem.productId]" [src]="product ? product.imageUrl : ''" alt="">
 </div>
-<p [routerLink]="['/product', wishlistItem.productId]">
-    <b>{{ product ? product.name : '' }}</b>
+<p>
+    <a class="name" [routerLink]="['/product', wishlistItem.productId]">{{ product ? product.name : '' }}</a>
     <br>
-    {{ product ? productService.formatPrice(product.price) : '' }}
+    {{ product ? (product.price | currency:'EUR':'symbol') : '' }}
 </p>
 <a (click)="onRemove()" class="remove">Remove</a>

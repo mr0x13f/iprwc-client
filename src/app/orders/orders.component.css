@@ -1,6 +1,12 @@
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
 ul{
 
     list-style: none;
     width: 100vw;
+    margin-bottom: 50px;
 
 }
