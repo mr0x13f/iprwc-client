@@ -20,8 +20,6 @@ import { HeaderComponent } from './header/header.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { WishlistItemComponent } from './wishlist/wishlist-item/wishlist-item.component';
 import { OrderListItemComponent } from './orders/order-list-item/order-list-item.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { OrderCompleteComponent } from './order-complete/order-complete.component';
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminListItemComponent } from './admin/admin-list-item/admin-list-item.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
@@ -32,8 +30,6 @@ const appRoutes: Routes = [
     { path: "product/:id",      component: ProductDetailComponent },
     { path: "wishlist",         component: WishlistComponent },
     { path: "cart",             component: CartComponent },
-    { path: "checkout",         component: CheckoutComponent },
-    { path: "order-complete",   component: OrderCompleteComponent },
     { path: "orders",           component: OrdersComponent },
     { path: "user",             component: UserComponent },
     { path: "user/edit",        component: UserEditComponent },
@@ -62,8 +58,6 @@ const appRoutes: Routes = [
         CartItemComponent,
         WishlistItemComponent,
         OrderListItemComponent,
-        CheckoutComponent,
-        OrderCompleteComponent,
         AdminEditComponent,
         AdminListItemComponent,
         UserEditComponent,

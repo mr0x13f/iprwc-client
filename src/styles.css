@@ -89,8 +89,18 @@ input {
     padding: 5px 10px;
     border: 1px solid var(--color-text-ghost);
     border-radius: 5px;
+    color: var(--color-text);
 }
 
 input::placeholder {
     color: var(--color-text-ghost);
+}
+
+textarea {
+    margin: 5px;
+    padding: 5px 10px;
+    border: 1px solid var(--color-text-ghost);
+    border-radius: 5px;
+    color: var(--color-text);
+    font-family: 'Red Hat Text', sans-serif;
 }

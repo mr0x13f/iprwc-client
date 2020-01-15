@@ -1,4 +1,5 @@
-<img [src]="product.imageUrl"> 
-<p>{{ product.name }}</p>
-<button [routerLink]="['/admin/edit', product.productId]">Edit</button>
-<button (click)="onDelete()">Delete</button>
+<p class="name">{{ product.name }}</p>
+<div class="control-wrapper">
+    <button class="edit" [routerLink]="['/admin/edit', product.productId]">Edit</button>
+    <a class="delete" (click)="onDelete()">Delete</a>
+</div>

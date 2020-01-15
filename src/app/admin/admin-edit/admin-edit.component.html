@@ -1,18 +1,19 @@
 <h2>Edit Product</h2>
 
 <form *ngIf="product != null">
-    <label for="">Name</label><br>
-    <input type="text" name="name" [(ngModel)]="product.name"><br>
-    <label for="">Image</label><br>
-    <input type="text" name="imageUrl" [(ngModel)]="product.imageUrl"><br>
-    <img [src]="product.imageUrl" *ngIf="product.imageUrl"><br>
-    <label for="">Price</label><br>
-    <input type="text" name="price" [(ngModel)]="product.price"><br>
-    <label for="">Description</label><br>
-    <textarea name="description" [(ngModel)]="product.description"></textarea><br>
-    <br>
-    <button (click)="onSave()">Save</button><br>
-    <button *ngIf="!isNew" (click)="onDelete()">Delete</button>
+    <div class="wrapper">
+        <label for="">Name</label>
+        <input class="name" type="text" name="name" [(ngModel)]="product.name">
+        <label for="">Price</label>
+        <input class="price" type="number" name="price" [(ngModel)]="product.price" min="1" step="any">
+        <label for="">Image</label>
+        <input type="text" name="imageUrl" [(ngModel)]="product.imageUrl">
+        <img [src]="product.imageUrl" *ngIf="product.imageUrl">
+        <label for="">Description</label>
+        <textarea name="description" [(ngModel)]="product.description"></textarea>
+    </div>
+    <button (click)="onSave()">Save</button>
+    <a class="delete" *ngIf="!isNew" (click)="onDelete()">Delete</a>
 </form>
 
 <p *ngIf="error == AdminEditError.NOT_FOUND">There was a problem finding the product. Please try again later.</p>

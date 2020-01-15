@@ -2,11 +2,6 @@ ul{
 
     list-style: none;
     width: 100vw;
-
-}
-
-ul li {
-
-    float: left;
+    margin-bottom: 50px;
 
 }
