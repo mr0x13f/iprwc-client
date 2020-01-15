@@ -17,7 +17,6 @@
 <p *ngIf="error == CartError.UPDATE_FAIL" class="error">There was a problem updating the product in your cart. Please try again later.</p>
 <p *ngIf="error == CartError.REMOVE_FAIL" class="error">There was a problem removing the product from your cart. Please try again later.</p>
 <p *ngIf="error == CartError.CLEAR_FAIL" class="error">There was a problem clearing your cart. Please try again later.</p>
-<p *ngIf="error == CartError.CHECKOUT_FAIL" class="error">There was a problem checking out. Please try again later.</p>
 
-<button (click)="onCheckout()">Checkout</button>
+<button [routerLink]="['/checkout']">Checkout</button>
 <a (click)="onRemoveAll()">Remove all</a>

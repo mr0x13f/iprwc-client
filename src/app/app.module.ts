@@ -25,12 +25,16 @@ import { AdminListItemComponent } from './admin/admin-list-item/admin-list-item.
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { BannerComponent } from './products/banner/banner.component';
 import { DialogueComponent } from './dialogue/dialogue.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderCompleteComponent } from './order-complete/order-complete.component';
 
 const appRoutes: Routes = [
     { path: "",                 component: ProductsComponent },
     { path: "product/:id",      component: ProductDetailComponent },
     { path: "wishlist",         component: WishlistComponent },
     { path: "cart",             component: CartComponent },
+    { path: "checkout",         component: CheckoutComponent },
+    { path: "order-complete",   component: OrderCompleteComponent },
     { path: "orders",           component: OrdersComponent },
     { path: "user",             component: UserComponent },
     { path: "user/edit",        component: UserEditComponent },
@@ -63,7 +67,9 @@ const appRoutes: Routes = [
         AdminListItemComponent,
         UserEditComponent,
         BannerComponent,
-        DialogueComponent
+        DialogueComponent,
+        CheckoutComponent,
+        OrderCompleteComponent
     ],
     imports: [
         BrowserModule,

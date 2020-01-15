@@ -5,14 +5,14 @@ import { CartService } from '../services/cart.service';
 import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
 import { DialogueService } from '../services/dialogue.service';
+import { Router } from '@angular/router';
 
 enum CartError {
     NONE,
     LOAD_FAIL,
     UPDATE_FAIL,
     REMOVE_FAIL,
-    CLEAR_FAIL,
-    CHECKOUT_FAIL
+    CLEAR_FAIL
 }
 
 @Component({
@@ -111,26 +111,13 @@ export class CartComponent implements OnInit {
             this.cartService.clearCart(
                 () => {
                     this.cartItems = [];
+                    this.totalPrice = 0;
                 }, error => {
                     this.error = CartError.CLEAR_FAIL;
                 });
             
-            this.totalPrice = 0;
 
         }, "Cancel")
-
-    }
-
-    onCheckout() {
-
-        this.cartService.checkout(
-            () => {
-                this.cartItems = [];
-            }, error => {
-                this.error = CartError.CHECKOUT_FAIL;
-            });
-
-        this.totalPrice = 0;
 
     }
 

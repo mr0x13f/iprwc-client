@@ -1,0 +1,5 @@
+<h2>Checkout</h2>
+
+<button (click)="onCheckout()">Complete order</button>
+
+<p *ngIf="error == CheckoutError.CHECKOUT_FAIL" class="error">There was a problem completing your order. Please try again later.</p>
