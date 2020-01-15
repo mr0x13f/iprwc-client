@@ -10,5 +10,5 @@
     <button type="submit" (click)="onRegister()">Register</button>
 </form>
 
-<p *ngIf="error == RegisterError.REGISTER_FAIL">There was a problem registering your account. Make sure you entered a valid email address and that your password is at least 8 characters long.</p>
-<p *ngIf="error == RegisterError.PASSWORD_MISMATCH">Passwords don't match.</p>
+<p *ngIf="error == RegisterError.REGISTER_FAIL" class="error">There was a problem registering your account. Please make sure you entered a valid email address and that your password is at least 8 characters long.</p>
+<p *ngIf="error == RegisterError.PASSWORD_MISMATCH" class="error">Passwords don't match.</p>

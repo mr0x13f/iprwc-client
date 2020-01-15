@@ -1,7 +1,7 @@
 <h2>Account</h2>
 
-<p *ngIf="error == UserError.LOAD_FAIL">There was a problem retrieving your account info. Please try again later.</p>
-<p *ngIf="error == UserError.DELETE_FAIL">There was a problem deleting your account. Please try again later.</p>
+<p *ngIf="error == UserError.LOAD_FAIL" class="error">There was a problem retrieving your account info. Please try again later.</p>
+<p *ngIf="error == UserError.DELETE_FAIL" class="error">There was a problem deleting your account. Please try again later.</p>
 
 <div class="user" *ngIf="user != null">
     <p>

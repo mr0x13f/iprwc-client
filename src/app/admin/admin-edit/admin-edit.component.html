@@ -16,7 +16,7 @@
     <a class="delete" *ngIf="!isNew" (click)="onDelete()">Delete</a>
 </form>
 
-<p *ngIf="error == AdminEditError.NOT_FOUND">There was a problem finding the product. Please try again later.</p>
-<p *ngIf="error == AdminEditError.CREATE_FAIL">There was a problem saving the product. Please try again later.</p>
-<p *ngIf="error == AdminEditError.UPDATE_FAIL">There was a problem updating the product. Please try again later.</p>
-<p *ngIf="error == AdminEditError.DELETE_FAIL">There was a problem deleting the product. Please try again later.</p>
+<p *ngIf="error == AdminEditError.NOT_FOUND" class="error">There was a problem finding the product. Please try again later.</p>
+<p *ngIf="error == AdminEditError.CREATE_FAIL" class="error">There was a problem saving the product. Please try again later.</p>
+<p *ngIf="error == AdminEditError.UPDATE_FAIL" class="error">There was a problem updating the product. Please try again later.</p>
+<p *ngIf="error == AdminEditError.DELETE_FAIL" class="error">There was a problem deleting the product. Please try again later.</p>

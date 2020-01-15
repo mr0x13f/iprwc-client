@@ -10,6 +10,6 @@
     <button (click)="onSave()">Save changed</button>
 </form>
 
-<p *ngIf="error == UserEditError.LOAD_FAIL">There was a problem retrieving your account info. Please try again later.</p>
-<p *ngIf="error == UserEditError.UPDATE_FAIL">There was a problem updating your account info. Make sure you entered a valid email address and that your password is at least 8 characters long.</p>
-<p *ngIf="error == UserEditError.PASSWORD_MISMATCH">Passwords don't match.</p>
+<p *ngIf="error == UserEditError.LOAD_FAIL" class="error">There was a problem retrieving your account info. Please try again later.</p>
+<p *ngIf="error == UserEditError.UPDATE_FAIL" class="error">There was a problem updating your account info. Make sure you entered a valid email address and that your password is at least 8 characters long.</p>
+<p *ngIf="error == UserEditError.PASSWORD_MISMATCH" class="error">Passwords don't match.</p>

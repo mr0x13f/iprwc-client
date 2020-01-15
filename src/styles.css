@@ -104,3 +104,9 @@ textarea {
     color: var(--color-text);
     font-family: 'Red Hat Text', sans-serif;
 }
+
+.error {
+
+    color: var(--color-remove);
+
+}

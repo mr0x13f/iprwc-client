@@ -26,9 +26,9 @@
 
 </div>
 
-<div *ngIf="error == ProductDetailError.NOT_FOUND" >
+<div *ngIf="error == ProductDetailError.NOT_FOUND">
     <h2>Product not found</h2>
     <p>We looked everwhere, but we couldn't find the product you are looking for.</p>
 </div>
-<p *ngIf="error == ProductDetailError.ADD_TO_CART_FAIL">There was a problem adding this product to your cart. Please try again later.</p>
-<p *ngIf="error == ProductDetailError.ADD_TO_WISHLIST_FAIL">There was a problem adding this product to your wishlist. Please try again later.</p>
+<p *ngIf="error == ProductDetailError.ADD_TO_CART_FAIL" class="error">There was a problem adding this product to your cart. Please try again later.</p>
+<p *ngIf="error == ProductDetailError.ADD_TO_WISHLIST_FAIL" class="error">There was a problem adding this product to your wishlist. Please try again later.</p>

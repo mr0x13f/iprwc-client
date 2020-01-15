@@ -10,8 +10,8 @@
     </li>
 </ul>
 
-<p *ngIf="error == WishlistError.LOAD_FAIL">There was a problem loading your wishlist. Please try again later.</p>
-<p *ngIf="error == WishlistError.CLEAR_FAIL">There was a problem clearing your wishlist. Please try again later.</p>
-<p *ngIf="error == WishlistError.REMOVE_FAIL">There was a problem removing the product from your wishlist. Please try again later.</p>
+<p *ngIf="error == WishlistError.LOAD_FAIL" class="error">There was a problem loading your wishlist. Please try again later.</p>
+<p *ngIf="error == WishlistError.CLEAR_FAIL" class="error">There was a problem clearing your wishlist. Please try again later.</p>
+<p *ngIf="error == WishlistError.REMOVE_FAIL" class="error">There was a problem removing the product from your wishlist. Please try again later.</p>
 
 <a (click)="onRemoveAll()">Remove all</a>
