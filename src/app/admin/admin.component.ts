@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
+import { DialogueService } from '../services/dialogue.service';
 
 enum AdminError {
     NONE,
@@ -24,6 +25,7 @@ export class AdminComponent implements OnInit {
     constructor(
         private authService:AuthService,
         private productService:ProductService,
+        private dialogueService:DialogueService
     ) { }
 
     ngOnInit() {
@@ -40,19 +42,24 @@ export class AdminComponent implements OnInit {
     }
 
     onDelete(product:Product) {
+
+        this.dialogueService.showMessage("Are you sure you want to delete this product?",
+            "Delete", () => {
+
+                this.productService.deleteProduct(product.productId,
+                    () => {
         
-        this.productService.deleteProduct(product.productId,
-            () => {
+                        for( let i = 0; i < this.products.length; i++){ 
+                            if ( this.products[i] === product) {
+                                this.products.splice(i, 1); 
+                            }
+                        }
+        
+                    }, error => {
+                        this.error = AdminError.REMOVE_FAIL;
+                    });
 
-                for( let i = 0; i < this.products.length; i++){ 
-                    if ( this.products[i] === product) {
-                        this.products.splice(i, 1); 
-                    }
-                }
-
-            }, error => {
-                this.error = AdminError.REMOVE_FAIL;
-            });
+            }, "Cancel")
     }
 
 }

@@ -1,0 +1,28 @@
+.message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+
+    padding: 5px;
+
+    background-color: var(--color-card);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 98;
+    background-color: rgba(0,0,0,0.5);
+}
+
+p {
+    font-size: 1.2em;
+    margin: 20px;
+}

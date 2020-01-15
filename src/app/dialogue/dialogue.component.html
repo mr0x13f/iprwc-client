@@ -1,0 +1,7 @@
+<div class="message" *ngIf="active">
+    <p>{{ messageText }}</p>
+    <button (click)="onOkClick()">{{ okText }}</button>
+    <a (click)="onCancelClick()">{{ cancelText }}</a>
+</div>
+
+<div class="overlay" *ngIf="active"></div>

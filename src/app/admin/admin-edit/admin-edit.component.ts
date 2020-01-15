@@ -3,6 +3,7 @@ import { Product } from 'src/app/models/product.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogueService } from 'src/app/services/dialogue.service';
 
 enum AdminEditError {
     NONE,
@@ -30,6 +31,7 @@ export class AdminEditComponent implements OnInit {
         private route:ActivatedRoute,
         private authService:AuthService,
         private productService:ProductService,
+        private dialogueService:DialogueService
     ) { }
 
     ngOnInit() {
@@ -87,12 +89,17 @@ export class AdminEditComponent implements OnInit {
 
     onDelete() {
 
-        this.productService.deleteProduct( this.product.productId,
-            product => {
-                this.router.navigate(["/admin"])
-            }, error => {
-                this.error = AdminEditError.DELETE_FAIL;
-            });
+        this.dialogueService.showMessage("Are you sure you want to delete this product?",
+            "Delete", () => {
+
+                this.productService.deleteProduct( this.product.productId,
+                    product => {
+                        this.router.navigate(["/admin"])
+                    }, error => {
+                        this.error = AdminEditError.DELETE_FAIL;
+                    });
+
+            }, "Cancel");
 
 
     }

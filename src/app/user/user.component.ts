@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { DialogueService } from '../services/dialogue.service';
 
 enum UserError {
     NONE,
@@ -26,6 +27,7 @@ export class UserComponent implements OnInit {
         private router:Router,
         private authService:AuthService,
         private userService:UserService,
+        private dialogueService:DialogueService
     ) { }
 
     ngOnInit() {
@@ -58,13 +60,18 @@ export class UserComponent implements OnInit {
 
     onDelete() {
 
-        this.userService.delete(
-            () => {
-                this.authService.logout();
-                this.router.navigate(["/"]);
-            }, error => {
-                this.error = UserError.DELETE_FAIL;
-            });
+        this.dialogueService.showMessage("Are you sure you want to permanently delete your account?",
+            "Delete", () => {
+
+                this.userService.delete(
+                    () => {
+                        this.authService.logout();
+                        this.router.navigate(["/"]);
+                    }, error => {
+                        this.error = UserError.DELETE_FAIL;
+                    });
+
+            }, "Cancel")
 
     }
 

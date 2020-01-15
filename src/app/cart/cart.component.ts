@@ -4,6 +4,7 @@ import { CartItem } from '../models/cart-item.model';
 import { CartService } from '../services/cart.service';
 import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
+import { DialogueService } from '../services/dialogue.service';
 
 enum CartError {
     NONE,
@@ -32,6 +33,7 @@ export class CartComponent implements OnInit {
         private authService:AuthService,
         private cartService:CartService,
         private productService:ProductService,
+        private dialogueService:DialogueService
     ) { }
 
     ngOnInit() {
@@ -103,14 +105,19 @@ export class CartComponent implements OnInit {
 
     onRemoveAll() {
 
-        this.cartService.clearCart(
-            () => {
-                this.cartItems = [];
-            }, error => {
-                this.error = CartError.CLEAR_FAIL;
-            });
-        
-        this.totalPrice = 0;
+        this.dialogueService.showMessage("Are you sure you want to clear your shopping cart?",
+        "Clear", () => {
+
+            this.cartService.clearCart(
+                () => {
+                    this.cartItems = [];
+                }, error => {
+                    this.error = CartError.CLEAR_FAIL;
+                });
+            
+            this.totalPrice = 0;
+
+        }, "Cancel")
 
     }
 

@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
 
         let loginForm = <{email:string, password:string}> form.value;
 
-        // loginForm.email = "admin@gmail.com";
-        // loginForm.password = "wachtwoord";
+        loginForm.email = "admin@gmail.com";
+        loginForm.password = "wachtwoord";
 
         this.authService.login(loginForm.email, loginForm.password,
             () => {

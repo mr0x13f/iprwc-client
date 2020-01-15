@@ -24,6 +24,7 @@ import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminListItemComponent } from './admin/admin-list-item/admin-list-item.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { BannerComponent } from './products/banner/banner.component';
+import { DialogueComponent } from './dialogue/dialogue.component';
 
 const appRoutes: Routes = [
     { path: "",                 component: ProductsComponent },
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
         AdminEditComponent,
         AdminListItemComponent,
         UserEditComponent,
-        BannerComponent
+        BannerComponent,
+        DialogueComponent
     ],
     imports: [
         BrowserModule,

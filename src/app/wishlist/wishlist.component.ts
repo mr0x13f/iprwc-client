@@ -4,6 +4,7 @@ import { WishlistItem } from '../models/wishlist-item.model';
 import { WishlistService } from '../services/wishlist.service';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
+import { DialogueService } from '../services/dialogue.service';
 
 enum WishlistError {
     NONE,
@@ -30,6 +31,7 @@ export class WishlistComponent implements OnInit {
         private authService:AuthService,
         private wishlistService:WishlistService,
         private productService:ProductService,
+        private dialogueService:DialogueService
     ) { }
 
     ngOnInit() {
@@ -76,12 +78,17 @@ export class WishlistComponent implements OnInit {
 
     onRemoveAll() {
 
-        this.wishlistService.clearWishlist(
-            () => {
-                this.wishlistItems = [];
-            }, error => {
-                this.error = WishlistError.CLEAR_FAIL;
-            });
+        this.dialogueService.showMessage("Are you sure you want to clear your wishlist?",
+            "Clear", () => {
+
+                this.wishlistService.clearWishlist(
+                    () => {
+                        this.wishlistItems = [];
+                    }, error => {
+                        this.error = WishlistError.CLEAR_FAIL;
+                    });
+
+            }, "Cancel")
 
     }
 
