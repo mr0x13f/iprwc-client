@@ -18,5 +18,5 @@
 <p *ngIf="error == CartError.REMOVE_FAIL" class="error">There was a problem removing the product from your cart. Please try again later.</p>
 <p *ngIf="error == CartError.CLEAR_FAIL" class="error">There was a problem clearing your cart. Please try again later.</p>
 
-<button [routerLink]="['/checkout']">Checkout</button>
+<button [routerLink]="['/checkout']" [disabled]="cartItems.length == 0">Checkout</button>
 <a (click)="onRemoveAll()">Remove all</a>

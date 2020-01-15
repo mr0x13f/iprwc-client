@@ -9,6 +9,7 @@
     --color-wishlist: #FF5656;
     --color-shipping: #37B700;
     --color-remove: #FF5656;
+    --color-disabled: #808080;
 
     --page-width: 1000px;
     --header-height: 65px;
@@ -81,6 +82,11 @@ button.btn-alt {
 
 button.btn-alt:hover {
     --button-darken: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05));
+}
+
+button:disabled {
+    --button-color: var(--color-disabled);
+    cursor: default;
 }
 
 input {
