@@ -7,7 +7,7 @@
     <input type="password" name="password" [(ngModel)]="registerForm.password" placeholder="Password"><br>
     <input type="password" name="repeatPassword" [(ngModel)]="repeatPassword" placeholder="Repeat password"><br>
     </div>
-    <button (click)="onSave()">Save changed</button>
+    <button (click)="onSave()">Save changes</button>
 </form>
 
 <p *ngIf="error == UserEditError.LOAD_FAIL" class="error">There was a problem retrieving your account info. Please try again later.</p>

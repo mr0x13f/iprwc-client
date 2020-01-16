@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector: 'app-order-complete',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderCompleteComponent implements OnInit {
 
-    constructor() { }
+    constructor(
+        private authService:AuthService
+    ) { }
 
     ngOnInit() {
+
+        if (this.authService.requireLogin()) return;
+
     }
 
 }

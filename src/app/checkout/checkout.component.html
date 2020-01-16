@@ -1,5 +1,14 @@
 <h2>Checkout</h2>
 
-<button (click)="onCheckout()">Complete order</button>
+<form>
+    <div class="wrapper">
+        <input (click)="onClickAddress()" [disabled]="triedToEnterAddress" type="text" placeholder="Shipping address">
+        <input (click)="onClickAddress()" [disabled]="triedToEnterAddress" type="text" placeholder="Country">
+        <input (click)="onClickAddress()" [disabled]="triedToEnterAddress" type="text" placeholder="City">
+        <input (click)="onClickAddress()" [disabled]="triedToEnterAddress" type="text" placeholder="Postal code">
+        <p *ngIf="triedToEnterAddress">Just kidding. It won't be shipped anyway.</p>
+    </div>
+    <button (click)="onCheckout()">Complete order</button>
+</form>
 
 <p *ngIf="error == CheckoutError.CHECKOUT_FAIL" class="error">There was a problem completing your order. Please try again later.</p>
