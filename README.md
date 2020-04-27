@@ -6,3 +6,5 @@ Possible code improvements:
 - Using Angular modules
 
 Check out https://github.com/mr0x13f/iprwc-api/ for the corresponding back-end.
+For the time being the webshop is live at https://weebshop.hydrateyourself.moe/.
+It will die eventually when the jks expires and I'm too lazy to fix it.
